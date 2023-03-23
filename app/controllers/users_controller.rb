@@ -26,10 +26,10 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       params[:remember_me] == '1' ? remember(@user) : forget(@user)
-      flash[:success] = "Invalid Email Or Password."
+      flash[:success] = "Login Successfully."
       redirect_to users_path
     else
-      flash.now[:danger] = "Login Successfully."
+      flash.now[:danger] = "Invalid Email Or Password."
       render :login, status: :unprocessable_entity
     end
   end

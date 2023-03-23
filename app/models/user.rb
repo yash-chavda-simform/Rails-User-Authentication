@@ -4,7 +4,6 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   
   def remember(user)
-    binding.pry
     self.remember_token = User.generate_token   #get random string from generate_token class method
     update_attribute(:remember_digest, User.digest(remember_token)) #find min cost and then create hash val based on min cost and stord in datbase
   end
