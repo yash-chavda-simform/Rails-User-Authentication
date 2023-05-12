@@ -48,6 +48,9 @@ gem 'bcrypt'
 #debugger
 gem 'pry'
 
+#authentication gem
+gem 'devise'
+
 #bootstrap
 gem 'bootstrap'
 

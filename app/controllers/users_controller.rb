@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :redirect_if_authenticated, only: [:new, :create, :login, :authentication]
   before_action :require_login, only: [:index, :logout]
-
+  before_action :authenticate_user_devise!, only: [:devise_view]
   def index; end
 
   def new
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_path
     else
-      redner :new 
+      render :new 
     end
   end
 
@@ -56,11 +56,7 @@ class UsersController < ApplicationController
     cookies.delete(:remember_token)
   end
 
-  def log_out
-    forget(current_user)
-    session.delete(:user_id)
-    @current_user = nil
-  end
+  def devise_view; end
 
   private
   def user_params

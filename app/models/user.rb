@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :email, uniqueness: true
+  validates :first_name, :last_name, :email, :password, presence: true
   has_secure_password
   has_secure_token :remember_digest
   attr_accessor :remember_token
