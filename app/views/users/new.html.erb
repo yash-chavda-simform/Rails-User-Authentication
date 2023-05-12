@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Sign up</h1>
+  <%= form_with model: @user do |form| %>
+    <div>
+      <%= form.label :first_name ,class:"col-sm-2 col-form-label" %>
+      <%= form.text_field :first_name, required: true, class:"form-control" %>
+    </div>
+    <div>
+      <%= form.label :last_name, class:"col-sm-2 col-form-label" %>
+      <%= form.text_field :last_name, required: true, class:"form-control" %>
+    </div>
+    <div>
+      <%= form.label :email, class:"col-sm-2 col-form-label" %>
+      <%= form.text_field :email, pattern: ".+@gmail\\.com", class:"form-control" %>
+    </div>
+    <div>
+      <%= form.label :password, class:"col-sm-2 col-form-label" %>
+      <%= form.password_field :password, class:"form-control" %>
+    </div>
+    <br>
+    <div>
+      <%= form.submit "Create", required: true, class:"btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= link_to "Already have Account?", users_login_path %>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Sign In</h1>
+  <%= form_with url:users_login_path do |form| %>
+    <div>
+      <%= form.label :email, class:"col-sm-2 col-form-label" %>
+      <%= form.text_field :email, class:"form-control" %>
+    </div>
+    <div>
+      <%= form.label :password, class:"col-sm-2 col-form-label" %>
+      <%= form.password_field :password, class:"form-control" %>
+    </div>
+    <div> 
+      <%= form.check_box :remember_me %>
+      <%= form.label :remember_me, "remember me" %>
+    </div>
+    <br>
+    <div>
+      <%= form.submit "Login",class:"btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= link_to "Don't Have Account?", new_user_path %>
+</div>
